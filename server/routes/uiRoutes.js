@@ -1,4 +1,5 @@
 const db = require('../db');
+const isUserLoggedIn = require('../auth');
 
 const globalLocals = {
 
@@ -11,12 +12,47 @@ const globalPartials = {
 
 const routes = (app) => {
 
-    app.get('/', async (req, res) => {
-        res.render('static/index.html', {
+    app.get('/login', async (req, res) => {
+        res.render('static/loginRegister.html', {
             locals: {
                 ...globalLocals,
-                title: 'Home',
-                data: await db.getPosts()
+                title: 'Login'
+            },
+            partials: {
+                ...globalPartials
+            }
+        })
+    })
+
+    app.get('/register', async (req, res) => {
+        res.render('static/loginRegister.html', {
+            locals: {
+                ...globalLocals,
+                title: 'Register'
+            },
+            partials: {
+                ...globalPartials
+            }
+        })
+    })
+
+    app.get('/yo', isUserLoggedIn, async (req, res) => {
+        res.render('static/yo.html', {
+            locals: {
+                ...globalLocals,
+                title: 'Home'
+            },
+            partials: {
+                ...globalPartials
+            }
+        })
+    })
+
+    app.get('/logout', isUserLoggedIn, async (req, res) => {
+        res.render('static/logout.html', {
+            locals: {
+                ...globalLocals,
+                title: 'Home'
             },
             partials: {
                 ...globalPartials

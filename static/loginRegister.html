@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+${head}
+<body class="">
+    ${header}
+
+    <main class="flex flex-col gap-5 px-5 my-5">
+        <section class="flex flex-col gap-5 w-full max-w-xl mx-auto">
+            <form id="loginForm" class="flex flex-col gap-2 w-full bg-gray-200 p-2">
+                <h3 class="text-xl">Login</h3>
+                <label for="" class="flex flex-col">
+                    Email
+                    <input type="email" name="email" id="email" placeholder="example@example.com" class="p-2">
+                </label>
+                <label for="" class="flex flex-col">
+                    Password
+                    <input type="password" name="pass" id="pass" value="" placeholder="********" class="p-2">
+                </label>
+                <input type="submit" value="Login" class="bg-red-500 p-2 px-5 text-white font-semibold max-w-max cursor-pointer">
+                <p>
+                    Don't have an account? <a href="/register" id="registerBtn" class="cursor-pointer underline">Register Here</a>
+                </p>
+            </form>
+            <form id="registerForm" action="/api/v1/register" method="POST" class="flex flex-col gap-2 w-full bg-gray-200 p-2 hidden">
+                <h3 class="text-xl">Register</h3>
+                <div class="flex flex-row gap-2">
+                    <label for="" class="flex flex-col flex-1">
+                        First Name
+                        <input type="text" name="firstName" id="firstName" placeholder="John" class="p-2">
+                    </label>
+                    <label for="" class="flex flex-col flex-1">
+                        Last Name
+                        <input type="text" name="lastName" id="lastName" placeholder="Smith" class="p-2">
+                    </label>
+                </div>
+                <label for="" class="flex flex-col">
+                    Email
+                    <input type="email" name="email" id="email" placeholder="JohnSmith@example.com" class="p-2">
+                </label>
+                <label for="" class="flex flex-col">
+                    Password
+                    <input type="password" name="pass1" id="pass" placeholder="********" class="p-2">
+                </label>
+                <label for="" class="flex flex-col">
+                    Repeat Password
+                    <input type="password" name="pass2" id="pass" placeholder="********" class="p-2">
+                </label>
+                <input type="submit" value="Register" class="bg-red-500 p-2 px-5 text-white font-semibold max-w-max cursor-pointer">
+                <p>
+                    Already have an account? <a href="/login" id="loginBtn" class="cursor-pointer underline">Login Here</a>
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+    
+    <script src="static/js/loginRegister.js"></script>
+</body>
+</html>
